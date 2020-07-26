@@ -32,13 +32,20 @@ The interface from Redis to Influx is only written for the following.  (Others w
 * [Install Grafana on Raspberry Pi](https://grafana.com/tutorials/install-grafana-on-raspberry-pi/#1)
 
 # Building Grafana Dashbard on Mudpi
-## Prerequisits 
+## Prerequisite 
 Confirm the sofware installed on raspbery pi are both working  
-1. Install MudPi
-1. Install Influx and Grafana
+1. [Installing MudPi from Github](https://mudpi.app/guides/6)
+1. Follow This guide to install Influx and Grafana you can skip step 0 - [Guide](https://simonhearne.com/2020/pi-influx-grafana/)
+1. (Optional) Follow through with the network speed tutorial if you want to learn more about how data flows from Influx to Grafana. - [Guide](https://simonhearne.com/2020/pi-speedtest-influx)
 
 ## Deploy interface Script
+1. Download the mudpitoinflux3.py script to your download direcdtory
+<code> cd ~/Downloads </code>
+<code> 	https://raw.githubusercontent.com/icyspace/MudPiInflux/master/mudpitoinflux3.py </code>
 
+1.Update
+1.move 
+<code> </code>
 ## Confirming Influx is collecting data 
 
 ## Building a Grafana Dashboard
