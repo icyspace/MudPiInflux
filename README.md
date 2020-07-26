@@ -38,14 +38,15 @@ Confirm the sofware installed on raspbery pi are both working
 1. Follow This guide to install Influx and Grafana you can skip step 0 - [Guide](https://simonhearne.com/2020/pi-influx-grafana/)
 1. (Optional) Follow through with the network speed tutorial if you want to learn more about how data flows from Influx to Grafana. - [Guide](https://simonhearne.com/2020/pi-speedtest-influx)
 
-## Deploy interface Script
-1. Download the mudpitoinflux3.py script to your download direcdtory
-<code> cd ~/Downloads </code>
-<code> 	https://raw.githubusercontent.com/icyspace/MudPiInflux/master/mudpitoinflux3.py </code>
+***
 
-1.Update
-1.move 
-<code> </code>
+## Deploy interface Script
+1. Download the mudpitoinflux3.py script to your download directory <br/>
+    <code> cd ~/Downloads </code> <br/>
+    <code> 	https://raw.githubusercontent.com/icyspace/MudPiInflux/master/mudpitoinflux3.py </code>  
+1. Update
+1. move 
+  <code> </code>
 ## Confirming Influx is collecting data 
 
 ## Building a Grafana Dashboard
