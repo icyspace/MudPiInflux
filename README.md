@@ -1,6 +1,12 @@
 # Overview
 MudPiInflux is simple interface to Mudpi which subscribes to the Redis PubSub and stores data from your garden in Influx.  Using Grafana you can then enable dashboards and alerting.  This can all run on the mudpi master raspberry pi (or could be configured on a separate machine)
 
+## Limitations 
+The interface from Redis to Influx is only written for the following.  (Others will likely work, but this is all I have tested)
+* Weather / soil sensors on Arduino 
+* Only 1 Relay (relay name not part of message)
+* Temp / Humidity Sensor 
+
 ## Dashboard
 ![MudPi Dashboard](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/MudpiGrafanaDashboard.png)
 
@@ -17,11 +23,25 @@ MudPiInflux is simple interface to Mudpi which subscribes to the Redis PubSub an
 
 ## Software 
 * [MudPi ](https://mudpi.app/) - [MudPi github](https://github.com/mudpi)
-* [Influx](https://www.influxdata.com/)
-* [Grafana](https://grafana.com/)
+* [Influx](https://www.influxdata.com/) - [repo](https://repos.influxdata.com/debian/)
+* [Grafana](https://grafana.com/) 
 
 ## Walkthroughs 
 * [Installing MudPi from Github](https://mudpi.app/guides/6)
-* [Installing InfluxDB & Grafana on Raspberry Pi]()
+* [Installing InfluxDB & Grafana on Raspberry Pi](https://simonhearne.com/2020/pi-influx-grafana/)
+* [Install Grafana on Raspberry Pi](https://grafana.com/tutorials/install-grafana-on-raspberry-pi/#1)
 
-# Configuration
+# Building Grafana Dashbard on Mudpi
+## Prerequisits 
+Confirm the sofware installed on raspbery pi are both working  
+1. Install MudPi
+1. Install Influx and Grafana
+
+## Deploy interface Script
+
+## Confirming Influx is collecting data 
+
+## Building a Grafana Dashboard
+
+## Enabling Email Alerting 
+
