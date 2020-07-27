@@ -55,13 +55,21 @@ Confirm the sofware installed on raspbery pi are both working
     ![Alert History](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/mudpiinfluxscriptupdate.png) <br/>
     Enter Keys ctl + o  then Enter - to save the file  <br/>
     Enter Keys ctl + x – to exit 
-1. Move config file to execution directory 
-    <code> sudo nano mudpitoinflux3.py </code> <br/>
-1. Add to supervisor Set up
+1. Move config file to execution directory
+    Move py file with your saved configurations to the directory you would like to run it from.  I am just running this from my home dir. 
+    ```shell
+    mv mudpitoinflux3.py ~/
+    ```
+1. Add to supervisor config
+    If you would like this file to run automaticaly on startup and restart on failures it's good to added it to supervisor.  Just like Mudpi is running. 
     Navigate to sup supervisor directory <br/>
-    <code> cd /etc/supervisor/conf.d </code> <br/>
+    ```shell
+    cd /etc/supervisor/conf.d
+    ```
     Create new conf file for mudpitoinflux3 script <br/>
-    </code> sudo nano mudpitoinflux3.conf </code> <br/>
+    ```shell
+    sudo nano mudpitoinflux3.conf 
+    ```
     Paste the following code in the file.  I have my script running out of my home directory.  If you want it to run from a different location you can create that and update this config here. <br/><br/>
     ```
     [program:mudpitoinflux3]
