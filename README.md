@@ -42,11 +42,50 @@ Confirm the sofware installed on raspbery pi are both working
 
 ## Deploy interface Script
 1. Download the mudpitoinflux3.py script to your download directory <br/>
-    <code> cd ~/Downloads </code> <br/>
-    <code> 	https://raw.githubusercontent.com/icyspace/MudPiInflux/master/mudpitoinflux3.py </code>  
-1. Update
-1. move 
-  <code> </code>
+    ```shell
+    cd ~/Downloads 
+    ```
+    ```shell
+    wget https://raw.githubusercontent.com/icyspace/MudPiInflux/master/mudpitoinflux3.py
+    ```
+1. Update mudpitoinflux3.py influx credentials <br/>
+    ```shell
+    sudo nano mudpitoinflux3.py
+    ```
+    ![Alert History](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/mudpiinfluxscriptupdate.png) <br/>
+    Enter Keys ctl + o  then Enter - to save the file  <br/>
+    Enter Keys ctl + x – to exit 
+1. Move config file to execution directory
+    Move py file with your saved configurations to the directory you would like to run it from.  I am just running this from my home dir. 
+    ```shell
+    mv mudpitoinflux3.py ~/
+    ```
+1. Add to supervisor config
+    If you would like this file to run automaticaly on startup and restart on failures it's good to added it to supervisor.  Just like Mudpi is running. 
+    Navigate to sup supervisor directory <br/>
+    ```shell
+    cd /etc/supervisor/conf.d
+    ```
+    Create new conf file for mudpitoinflux3 script <br/>
+    ```shell
+    sudo nano mudpitoinflux3.conf 
+    ```
+    Paste the following code in the file.  I have my script running out of my home directory.  If you want it to run from a different location you can create that and update this config here. <br/>
+    ```
+    [program:mudpitoinflux3]
+    directory=/home/pi
+    command=python3 -u /home/pi/mudpitoinflux3.py
+    autostart=true
+    autorestart=true
+    stderr_logfile=/home/pi/logs/mudpitoinflux3.err.log
+    stdout_logfile=/home/pi/logs/mudpitoinflux3.out.log 
+    ``` 
+    Enter Keys <code> ctl + o </code>  then <code>Enter </code> - to save the file  <br/>
+    Enter Keys <code>ctl + x </code> – to exit <br/> 
+    Start Supervisor 
+    ```shell
+    ls 
+    ```
 ## Confirming Influx is collecting data 
 
 ## Building a Grafana Dashboard
