@@ -70,7 +70,7 @@ Confirm the sofware installed on raspbery pi are both working
     ```shell
     sudo nano mudpitoinflux3.conf 
     ```
-    Paste the following code in the file.  I have my script running out of my home directory.  If you want it to run from a different location you can create that and update this config here. <br/><br/>
+    Paste the following code in the file.  I have my script running out of my home directory.  If you want it to run from a different location you can create that and update this config here. <br/>
     ```
     [program:mudpitoinflux3]
     directory=/home/pi
@@ -80,10 +80,12 @@ Confirm the sofware installed on raspbery pi are both working
     stderr_logfile=/home/pi/logs/mudpitoinflux3.err.log
     stdout_logfile=/home/pi/logs/mudpitoinflux3.out.log 
     ``` 
-    Enter Keys ctl + o  then Enter - to save the file  <br/>
-    Enter Keys ctl + x – to exit 
-1. move 
-  <code> </code>
+    Enter Keys <code> ctl + o </code>  then <code>Enter </code> - to save the file  <br/>
+    Enter Keys <code>ctl + x </code> – to exit <br/> 
+    Start Supervisor 
+    ```shell
+    ls 
+    ```
 ## Confirming Influx is collecting data 
 
 ## Building a Grafana Dashboard
