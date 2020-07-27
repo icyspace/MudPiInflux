@@ -44,7 +44,11 @@ Confirm the sofware installed on raspbery pi are both working
 1. Download the mudpitoinflux3.py script to your download directory <br/>
     <code> cd ~/Downloads </code> <br/>
     <code> 	https://raw.githubusercontent.com/icyspace/MudPiInflux/master/mudpitoinflux3.py </code>  
-1. Update
+1. Update mudpitoinflux3.py influx credentials <br/>
+    <code> sudo nano mudpitoinflux3.py </code> <br/>
+    ![Alert History](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/mudpiinfluxscriptupdate.png) <br/>
+    Enter Keys Ctl + o, then Enter, then Ctl + x to save and exit
+1. Add to supervisor Set up
 1. move 
   <code> </code>
 ## Confirming Influx is collecting data 
