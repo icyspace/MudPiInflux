@@ -40,7 +40,7 @@ Confirm the sofware installed on raspbery pi are both working
 
 ***
 
-## Deploy interface Script
+## Deploy Interface Script
 1. Download the mudpitoinflux3.py script to your download directory <br/>
     ```shell
     cd ~/Downloads 
@@ -84,11 +84,44 @@ Confirm the sofware installed on raspbery pi are both working
     Enter Keys <code>ctl + x </code> – to exit <br/> 
     Start Supervisor 
     ```shell
-    ls 
+    sudo supervisorctl start mudpitoinflux3
     ```
+    To check the status
+    ```shell
+    sudo supervisorctl start mudpitoinflux3
+    ```
+    or review error log in the locaiton you specified in the suervisor config file
 ## Confirming Influx is collecting data 
+1. Connect to influx
+    Go to home dir
+    ```shell 
+    cd ~ 
+    ```
+    ```shell 
+    influx 
+    ```
+1. Select the home database (or the table you configured the mudpitoinflux3.py to write to)
+    ```shell 
+    use home 
+    ```
+1. List and query measurements being collected   
+   ```shell 
+    show measurements 
+    ```
+    You should see your sensors by name listed here.  Select one and use it in the query below. 
+    ```sql 
+    Select * from <measurement> limit 100 
+    ```
+    This will display the data in the measurement of the time series database. If you see your data you are good to go.  
+    ![influx Results](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/influxquery.png)
 
 ## Building a Grafana Dashboard
+1. Log into Grafana 
+1. Create new data source
+1. Create new Dashboard 
 
 ## Enabling Email Alerting 
+1. For Email Edit the Grafanda Config 
+1. Edit your dashboard
+
 
