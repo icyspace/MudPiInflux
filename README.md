@@ -44,9 +44,7 @@ Confirm the sofware installed on raspbery pi are both working
 1. Download the mudpitoinflux3.py script to your download directory <br/>
     ```shell
     cd ~/Downloads 
-    ``` 
-    ```shell
-    https://raw.githubusercontent.com/icyspace/MudPiInflux/master/mudpitoinflux3.py
+    wget https://raw.githubusercontent.com/icyspace/MudPiInflux/master/mudpitoinflux3.py
     '''
 1. Update mudpitoinflux3.py influx credentials <br/>
     ```shell
