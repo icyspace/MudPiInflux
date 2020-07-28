@@ -20,6 +20,11 @@ The interface from Redis to Influx is only written for the following.  (Others w
 # Reference sites
 ## Hardware I used
 * [Raspberry SC15184 Pi 4 Model B 2019 Quad Core 64 Bit WiFi Bluetooth (2GB)](http://amzn.com/B07TD42S27)
+* [LM393 Rain Drops Sensor Weather Moisture Monitor Sensor](http://amzn.com/B01DK29K28)
+* [BACOENG 1" DC12V Electric Solenoid Valve (NPT, Brass, Normally Closed)](http://amzn.com/B010LT2D3Q)
+* [Capacitive Soil Moisture Sensor Corrosion Resistant](http://amzn.com/B07SYBSHGX)
+* [2 Channel DC 5V Relay Module with Optocoupler Low Level Trigger Expansion Board](http://amzn.com/B00E0NTPP4)
+* [5pcs DHT11 Temperature Humidity Sensor Module Digital Temperature Humidity Sensor](http://amzn.com/B01DKC2GQ0)
 
 ## Software 
 * [MudPi ](https://mudpi.app/) - [MudPi github](https://github.com/mudpi)
