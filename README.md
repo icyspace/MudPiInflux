@@ -125,12 +125,29 @@ Confirm the sofware installed on raspbery pi are both working
 ## Building a Grafana Dashboardi
 1. Log into Grafana 
     Open a browser and navigate to your Pi IP address ``` http://<your.rpi.address>:3000 ```
-1. Create new data source
+1. Create new data source <br/> 
+    Navigate to ``` Configuration > Data Sources ```
+    Search for "Influx"
+    ![search for influx](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/SelectInfluxDataSource.png)
+    Below is my configuration and is fairly standard if you installed Grafana on the same raspbery pi as Mudpi and influx 
+    ![influxconfig1](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/InfluxConfiguration1.png) 
+    ![influxconfig2](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/InfluxConfiguration2.png)
 
 1. Create new Dashboard 
-
+![GrafanaQuery](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaQuery.png)
+![GrafanaSettings](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaSettings.png)
+![GrafanaSettings1](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaSettings1.png)
+![influxconfig2](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/InfluxConfiguration2.png)
+![influxconfig2](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/InfluxConfiguration2.png)
 ## Enabling Email Alerting 
 To use alerting you must set up a Notification Channel.  Grafana supports a large range of options [here](https://grafana.com/docs/grafana/latest/alerting/notifications/). 
-1. For Email Edit the Grafanda Config 
-1. Set up a notification channel 
-1. Edit your dashboard and add alerts
+1. For Email Edit the Grafanda Config <br/>
+    ![gmailconfig](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/gmailconfig.png)
+1. Set up a notification channel <br/>
+    ![notificationChannel](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/notificationChannel.png)    
+1. Edit your dashboard and add alerts <br/>
+    ![EmailGardenAlertConfig](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/EmailGardenAlertConfig.png)
+    ![GrafanaAlertConfiguration](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaAlertConfiguration.png) 
+    ![GrafanaAlertDashboard](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaAlertDashboard.png)
+#Summary
+At this point you should have a low mantiance solution to collect, view, and be alerted on your gradens performance.  Happy Growing!
