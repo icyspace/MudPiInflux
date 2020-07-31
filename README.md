@@ -122,13 +122,15 @@ Confirm the sofware installed on raspbery pi are both working
     This will display the data in the measurement of the time series database. If you see your data you are good to go.  
     ![influx Results](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/influxquery.png)
 
-## Building a Grafana Dashboard
+## Building a Grafana Dashboardi
 1. Log into Grafana 
+    Open a browser and navigate to your Pi IP address ``` http://<your.rbp.address>:3000/login ```
 1. Create new data source
+
 1. Create new Dashboard 
 
 ## Enabling Email Alerting 
+To use alerting you must set up a Notification Channel.  Grafana supports a large range of options [here](https://grafana.com/docs/grafana/latest/alerting/notifications/). 
 1. For Email Edit the Grafanda Config 
-1. Edit your dashboard
-
-
+1. Set up a notification channel 
+1. Edit your dashboard and add alerts
