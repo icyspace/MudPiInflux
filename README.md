@@ -38,9 +38,9 @@ The interface from Redis to Influx is only written for the following.  (Others w
 * [Installing InfluxDB & Grafana on Raspberry Pi](https://simonhearne.com/2020/pi-influx-grafana/)
 * [Install Grafana on Raspberry Pi](https://grafana.com/tutorials/install-grafana-on-raspberry-pi/#1)
 
-# Building Grafana Dashbard on Mudpi
+# Building Grafana Dashboard on Mudpi
 ## Prerequisite 
-Confirm the sofware installed on raspbery pi are both working  
+Confirm the software installed on raspberry pi are both working  
 1. [Installing MudPi from Github](https://mudpi.app/guides/6)
 1. Follow This guide to install Influx and Grafana you can skip step 0 - [Guide](https://simonhearne.com/2020/pi-influx-grafana/)
 1. (Optional) Follow through with the network speed tutorial if you want to learn more about how data flows from Influx to Grafana. - [Guide](https://simonhearne.com/2020/pi-speedtest-influx)
@@ -68,7 +68,7 @@ Confirm the sofware installed on raspbery pi are both working
     mv mudpitoinflux3.py ~/
     ```
 1. Add to supervisor config
-    If you would like this file to run automaticaly on startup and restart on failures it's good to added it to supervisor.  Just like Mudpi is running. 
+    If you would like this file to run automatically on startup and restart on failures it's good to added it to supervisor.  Just like Mudpi is running. 
     Navigate to sup supervisor directory <br/>
     ```shell
     cd /etc/supervisor/conf.d
@@ -97,7 +97,7 @@ Confirm the sofware installed on raspbery pi are both working
     ```shell
     sudo supervisorctl start mudpitoinflux3
     ```
-    or review error log in the locaiton you specified in the suervisor config file
+    or review error log in the location you specified in the supervisor config file
 ## Confirming Influx is collecting data 
 1. Connect to influx
     Go to home dir
@@ -122,17 +122,16 @@ Confirm the sofware installed on raspbery pi are both working
     This will display the data in the measurement of the time series database. If you see your data you are good to go.  
     ![influx Results](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/influxquery.png)
 
-## Building a Grafana Dashboardi
+## Building a Grafana Dashboard
 1. Log into Grafana 
     Open a browser and navigate to your Pi IP address ``` http://<your.rpi.address>:3000 ```
 1. Create new data source <br/> 
     Navigate to ``` Configuration > Data Sources ```
     Search for "Influx"
     ![search for influx](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/SelectInfluxDataSource.png) <br/>
-    Below is my configuration and is fairly standard if you installed Grafana on the same raspbery pi as Mudpi and influx <br/>
+    Below is my configuration and is fairly standard if you installed Grafana on the same raspberry pi as Mudpi and influx <br/>
     ![influxconfig1](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/InfluxConfiguration1.png) <br/>
     ![influxconfig2](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/InfluxConfiguration2.png) <br/>
-
 1. Create new Dashboard 
 ![GrafanaQuery](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaQuery.png)<br/>
 ![GrafanaSettings](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaSettings.png)<br/>
@@ -140,7 +139,7 @@ Confirm the sofware installed on raspbery pi are both working
 ![influxconfig2](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/InfluxConfiguration2.png)<br/>
 ## Enabling Email Alerting 
 To use alerting you must set up a Notification Channel.  Grafana supports a large range of options [here](https://grafana.com/docs/grafana/latest/alerting/notifications/). 
-1. For Email Edit the Grafanda Config <br/>
+1. For Email Edit the Grafana Config <br/>
     ![gmailconfig](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/gmailconfig.png)<br/>
 1. Set up a notification channel <br/>
     ![notificationChannel](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/notificationChannel.png)    <br/>
@@ -149,5 +148,5 @@ To use alerting you must set up a Notification Channel.  Grafana supports a larg
     ![GrafanaAlertConfiguration](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaAlertConfiguration.png) <br/>
     ![GrafanaAlertDashboard](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaAlertDashboard.png)<br/>
 # Summary
-At this point you should have a low mantiance solution to collect, view, and be alerted on your gradens performance.  
+At this point you should have a low maintenance  solution to collect, view, and be alerted on your garden’s performance.  
 <b> Happy Growing! </b>
