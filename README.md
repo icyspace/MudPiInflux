@@ -124,7 +124,7 @@ Confirm the sofware installed on raspbery pi are both working
 
 ## Building a Grafana Dashboardi
 1. Log into Grafana 
-    Open a browser and navigate to your Pi IP address ``` http://<your.rbp.address>:3000/login ```
+    Open a browser and navigate to your Pi IP address ``` http://<your.rpi.address>:3000 ```
 1. Create new data source
 
 1. Create new Dashboard 
