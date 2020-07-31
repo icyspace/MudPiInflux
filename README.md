@@ -1,3 +1,5 @@
+[Skip to walkthrough](https://github.com/icyspace/MudPiInflux#building-grafana-dashbard-on-mudpi)
+
 # Overview
 MudPiInflux is simple interface to Mudpi which subscribes to the Redis PubSub and stores data from your garden in Influx.  Using Grafana you can then enable dashboards and alerting.  This can all run on the mudpi master raspberry pi (or could be configured on a separate machine)
 
@@ -20,6 +22,11 @@ The interface from Redis to Influx is only written for the following.  (Others w
 # Reference sites
 ## Hardware I used
 * [Raspberry SC15184 Pi 4 Model B 2019 Quad Core 64 Bit WiFi Bluetooth (2GB)](http://amzn.com/B07TD42S27)
+* [LM393 Rain Drops Sensor Weather Moisture Monitor Sensor](http://amzn.com/B01DK29K28)
+* [BACOENG 1" DC12V Electric Solenoid Valve (NPT, Brass, Normally Closed)](http://amzn.com/B010LT2D3Q)
+* [Capacitive Soil Moisture Sensor Corrosion Resistant](http://amzn.com/B07SYBSHGX)
+* [2 Channel DC 5V Relay Module with Optocoupler Low Level Trigger Expansion Board](http://amzn.com/B00E0NTPP4)
+* [5pcs DHT11 Temperature Humidity Sensor Module Digital Temperature Humidity Sensor](http://amzn.com/B01DKC2GQ0)
 
 ## Software 
 * [MudPi ](https://mudpi.app/) - [MudPi github](https://github.com/mudpi)
@@ -40,7 +47,7 @@ Confirm the sofware installed on raspbery pi are both working
 
 ***
 
-## Deploy interface Script
+## Deploy Interface Script
 1. Download the mudpitoinflux3.py script to your download directory <br/>
     ```shell
     cd ~/Downloads 
@@ -84,11 +91,46 @@ Confirm the sofware installed on raspbery pi are both working
     Enter Keys <code>ctl + x </code> – to exit <br/> 
     Start Supervisor 
     ```shell
-    ls 
+    sudo supervisorctl start mudpitoinflux3
     ```
+    To check the status
+    ```shell
+    sudo supervisorctl start mudpitoinflux3
+    ```
+    or review error log in the locaiton you specified in the suervisor config file
 ## Confirming Influx is collecting data 
+1. Connect to influx
+    Go to home dir
+    ```shell 
+    cd ~ 
+    ```
+    ```shell 
+    influx 
+    ```
+1. Select the home database (or the table you configured the mudpitoinflux3.py to write to)
+    ```shell 
+    use home 
+    ```
+1. List and query measurements being collected   
+   ```shell 
+    show measurements 
+    ```
+    You should see your sensors by name listed here.  Select one and use it in the query below. 
+    ```sql 
+    Select * from <measurement> limit 100 
+    ```
+    This will display the data in the measurement of the time series database. If you see your data you are good to go.  
+    ![influx Results](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/influxquery.png)
 
-## Building a Grafana Dashboard
+## Building a Grafana Dashboardi
+1. Log into Grafana 
+    Open a browser and navigate to your Pi IP address ``` http://<your.rpi.address>:3000 ```
+1. Create new data source
+
+1. Create new Dashboard 
 
 ## Enabling Email Alerting 
-
+To use alerting you must set up a Notification Channel.  Grafana supports a large range of options [here](https://grafana.com/docs/grafana/latest/alerting/notifications/). 
+1. For Email Edit the Grafanda Config 
+1. Set up a notification channel 
+1. Edit your dashboard and add alerts
