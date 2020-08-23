@@ -133,7 +133,7 @@ Confirm the software installed on raspberry pi are both working
     ![influxconfig1](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/InfluxConfiguration1.png) <br/>
     ![influxconfig2](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/InfluxConfiguration2.png) <br/>
 1. Create new Dashboard 
-![GrafanaQuery](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaQuery.png)<br/>
+![GrafanaQuery](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaQuery.gif)<br/>
 ![GrafanaSettings](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaSettings.png)<br/>
 ![GrafanaSettings1](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/GrafanaSettings1.png)<br/>
 ![influxconfig2](https://raw.githubusercontent.com/icyspace/MudPiInflux/master/img/InfluxConfiguration2.png)<br/>
