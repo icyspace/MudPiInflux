@@ -34,6 +34,24 @@ logging.debug(sys.version)
 #set redis
 r = redis.Redis(rediscon)
 
+#function to flatten JSON
+def flatten_json(y):
+    out = {}
+
+    def flatten(x, name=''):
+        if type(x) is dict:
+            for a in x:
+                flatten(x[a], name + a + '_')
+        elif type(x) is list:
+            i = 0
+            for a in x:
+                flatten(a, name + str(i) + '_')
+                i += 1
+        else:
+            out[name[:-1]] = x
+
+    flatten(y)
+    return out
 
 def process():
     ps = r.pubsub()
@@ -56,11 +74,32 @@ def process():
         logging.debug(message)
         
         if event == "PiSensorUpdate": 
-            process_message( message)
+            process_message_sensor( message)
         elif event == "SensorUpdate":
-            process_message_soil( message)
+            process_message_sensor( message)
         elif (event == "StateChanged") or (event == "Switch"):
             process_message_relay(event, message)
+
+#Sensor Messages
+def process_message_sensor(message):
+   # measurement_name = "soil"
+    time = datetime.datetime.utcnow()
+
+    for d in flatten_json(message):
+            body = [
+                {"measurement": d,
+                "time": time,
+                "tags": {
+                    "sensorname": d
+                },
+                "fields": {
+                    d: message[d]
+                }}
+            ]
+
+            logging.debug("process_message")
+            logging.debug(body)
+            load_influx(body) 
 
 #Relay 
 def process_message_relay(event, message):
@@ -81,50 +120,6 @@ def process_message_relay(event, message):
     logging.debug("process_message")
     logging.debug(body)
     load_influx(body) 
-
-#Pi Sensors (multi Measurements)
-def process_message(message):
-    time = datetime.datetime.utcnow()
-
-    for d in message:
-    #print(d)
-        for e in message[d]:
-            body = [
-                {"measurement": e,
-                "time": time,
-                "tags": {
-                    "sensorname": d
-                },
-                "fields": {
-                    e: message[d][e]
-                }}
-            ]
-            logging.debug("process_message")
-            logging.debug(body)
-            load_influx(body) 
-
-#Arduino Sensor (single measurement)
-def process_message_soil(message):
-   # measurement_name = "soil"
-    time = datetime.datetime.utcnow()
-
-    for d in message:
-            body = [
-                {"measurement": d,
-                "time": time,
-                "tags": {
-                    "sensorname": d
-                },
-                "fields": {
-                    d: message[d]
-                }}
-            ]
-
-            logging.debug("process_message")
-            logging.debug(body)
-            load_influx(body) 
-
- 
 
 #Send to Influx
 def load_influx(body):
