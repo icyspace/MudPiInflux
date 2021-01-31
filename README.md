@@ -81,6 +81,7 @@ Confirm the software installed on raspberry pi are both working
     ```
     [program:mudpitoinflux3]
     directory=/home/pi
+    user=pi
     command=python3 -u /home/pi/mudpitoinflux3.py
     autostart=true
     autorestart=true
