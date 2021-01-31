@@ -91,6 +91,8 @@ Confirm the software installed on raspberry pi are both working
     Enter Keys <code>ctl + x </code> – to exit <br/> 
     Start Supervisor 
     ```shell
+    sudo supervisorctl update
+
     sudo supervisorctl start mudpitoinflux3
     ```
     To check the status
