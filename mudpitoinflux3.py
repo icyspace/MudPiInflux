@@ -74,9 +74,9 @@ def process():
         logging.debug(message)
         
         if event == "PiSensorUpdate": 
-            process_message_sensor( message)
+            process_message_sensor(flatten_json(message))
         elif event == "SensorUpdate":
-            process_message_sensor( message)
+            process_message_sensor(flatten_json(message))
         elif (event == "StateChanged") or (event == "Switch"):
             process_message_relay(event, message)
 
@@ -85,7 +85,7 @@ def process_message_sensor(message):
    # measurement_name = "soil"
     time = datetime.datetime.utcnow()
 
-    for d in flatten_json(message):
+    for d in message:
             body = [
                 {"measurement": d,
                 "time": time,
