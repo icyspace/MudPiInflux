@@ -46,8 +46,9 @@ Confirm the software installed on raspberry pi are both working
 1. (Optional) Follow through with the network speed tutorial if you want to learn more about how data flows from Influx to Grafana. - [Guide](https://simonhearne.com/2020/pi-speedtest-influx)
 1. (Optional) if installing influx on a different machine you can run this script on that machine or you can install influxdb-client on the PI instedad.   
     ```shell
-    pip3 install influxdb-client
+    pip3 install influxdb
     ```
+    should upgrade to the new client     pip3 install influxdb-client
 
 ***
 
