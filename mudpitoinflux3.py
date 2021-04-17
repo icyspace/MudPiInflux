@@ -143,7 +143,7 @@ def process_message_state(message):
         if "state" in d:
             body = [
                 {"measurement": message["component_id"] + d[5:],
-                 "time": message["updated_at"],
+                 "time": time,
                  "tags": {
                      "sensorname": message["component_id"] + d[5:],
                      "classifier": message["metadata_classifier"]
